@@ -18,12 +18,12 @@ export default class RegisterScreen extends Component {
     render() {
         return (
             <ScrollView>
-                <View>
+                <View style={{marginHorizontal: 8}}>
                     <ImagePicker />
                 </View>
                 <View style={{marginHorizontal: 15}}>
                     <View >
-                        <Text style={{flex: 2, fontWeight: 'bold', marginBottom: -20, marginTop: 30}}>Full Name</Text>
+                        <Text style={{flex: 2, fontWeight: 'bold', marginBottom: -20, marginTop: 40}}>Full Name</Text>
                         <TextInput
                             style={{flex: 8}}
                             value={this.state.full_name}
@@ -143,7 +143,7 @@ export default class RegisterScreen extends Component {
                     backgroundColor: '#E71C63', 
                     justifyContent: 'center', 
                     alignItems: 'center', 
-                    marginHorizontal: 20,
+                    marginHorizontal: 25,
                     marginTop: 10,
                     borderRadius: 5
                     }}>

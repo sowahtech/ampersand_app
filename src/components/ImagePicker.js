@@ -43,16 +43,17 @@ export default function ImagePickerExample() {
             flex: 1, 
             alignItems: 'center', 
             justifyContent: 'center', 
-            width: 350, 
-            height: 220, 
-            backgroundColor: '#EAE9EA' 
+            width: 340, 
+            height: 180, 
+            backgroundColor: '#EAE9EA', 
+            marginHorinzontal: 10
             }}>
 
             <TouchableOpacity onPress={pickImage}>
                 <AntDesign style={{paddingLeft: 40}}name="user" size={50} color='#E71C63' />
                 <Text style={{ color: '#E71C63' }}>ADD PROFILE PHOTO</Text>
             </TouchableOpacity>
-            {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+            {image && <Image source={{ uri: image }} style={{ width: 340, height: 245 }} />}
         </View>
     );
 }
