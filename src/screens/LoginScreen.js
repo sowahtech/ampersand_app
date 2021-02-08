@@ -12,16 +12,16 @@ export default class LoginScreen extends Component {
     render() {
         return (
             <ScrollView>
-                <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                    <Image 
-                        style={{ width: 360, height: 250 }} 
+                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <Image
+                        style={{ width: 360, height: 250 }}
                         source={require('../../assets/login_pix_03_1.png')} />
                 </View>
-                <View style={{ marginVertical: 80, marginHorizontal: 20}}>
-                    <View style={{flexDirection: 'row', marginBottom: 5}}>
-                        <Text style={{flex: 2, fontWeight: 'bold'}}>Email</Text>
+                <View style={{ marginVertical: 80, marginHorizontal: 20 }}>
+                    <View style={{ flexDirection: 'row', marginBottom: 5 }}>
+                        <Text style={{ flex: 2, fontWeight: 'bold' }}>Email</Text>
                         <TextInput
-                            style={{flex: 8}}
+                            style={{ flex: 8 }}
                             value={this.state.email}
                             autoCapitalize='none'
                             autoCorrect={false}
@@ -30,19 +30,19 @@ export default class LoginScreen extends Component {
                         />
                     </View>
                     <View style={{
-                        height: 2, 
-                        width: '100%', 
+                        height: 2,
+                        width: '100%',
                         backgroundColor: 'gray',
                         marginBottom: 10
-                        }}>
+                    }}>
 
                     </View>
-                    <View style={{flexDirection: 'row'}}>
-                        <Text style={{flex: 2, fontWeight: 'bold'}}>Password</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ flex: 2, fontWeight: 'bold' }}>Password</Text>
                         <TextInput
                             value={this.state.password}
                             autoCapitalize='none'
-                            style={{flex: 8}}
+                            style={{ flex: 8 }}
                             autoCorrect={false}
                             textAlign='right'
                             secureTextEntry={true}
@@ -51,25 +51,28 @@ export default class LoginScreen extends Component {
                     </View>
 
 
-                    <View style={{ 
-                        width: '100%', 
-                        height: 50, 
-                        borderRadius: 5, 
-                        backgroundColor: '#E71C63', 
-                        marginVertical: 40, 
-                        justifyContent: "center", 
-                        alignItems: 'center' }}>
+                    <View style={{
+                        width: '100%',
+                        height: 50,
+                        borderRadius: 5,
+                        backgroundColor: '#E71C63',
+                        marginVertical: 40,
+                        justifyContent: "center",
+                        alignItems: 'center'
+                    }}>
                         <TouchableOpacity>
-                            <Text style={{ color: "white", fontSize: 20 }}>SIGN IN</Text>
+                            <Text onPress={() => { this.props.navigation.navigate('Add') }} style={{ color: "white", fontSize: 20 }}>SIGN IN</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{ flexDirection: "row", marginTop: 30 }}>
                         <View>
-                            <Text style={{fontWeight: 'bold'}}>Forgot?</Text>
+                            <Text style={{ fontWeight: 'bold' }}>Forgot?</Text>
                         </View>
                         <View style={{ marginLeft: 8 }}>
-                            <Text style={{fontWeight: 'bold'}}>Reset Password</Text>
-                            <View style={{ height: 2, width: 100, backgroundColor: "orange" }}></View>
+                            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Register')}}>
+                                <Text style={{ fontWeight: 'bold' }}>Reset Password</Text>
+                                <View style={{ height: 2, width: 100, backgroundColor: "orange" }}></View>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </View>

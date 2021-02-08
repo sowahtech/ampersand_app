@@ -148,7 +148,7 @@ export default class RegisterScreen extends Component {
                     borderRadius: 5
                     }}>
                     <TouchableOpacity>
-                        <Text style={{color: 'white', fontSize: 20}}>REGISTER</Text>
+                        <Text onPress = {()=>{this.props.navigation.navigate('Login')}} style={{color: 'white', fontSize: 20}}>REGISTER</Text>
                     </TouchableOpacity>
                 </View>
 
