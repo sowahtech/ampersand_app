@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import WelcomeScreen1 from './src/screens/WelcomeScreen1';
@@ -66,8 +66,10 @@ export default function App() {
 					name="Register"
 					component={RegisterScreen} />
 				<Stack.Screen
-					options={{
-						headerRight: () => (<AntDesign style={{ marginRight: 20 }} name="user" size={24} color="white" />),
+					options={({ navigation }) => ({
+						headerRight: () => (<View>
+							<TouchableOpacity onPress={()=> {navigation.navigate("User")}}><AntDesign style={{ marginRight: 20 }} name="user" size={24} color="white" /></TouchableOpacity>
+							</View>),
 						title: <View style={{ width: 100, height: 50 }}><Image source={require('./assets/logo_white1_03.gif')} /></View>,
 						headerLeft: null,
 						headerStyle: {
@@ -76,7 +78,7 @@ export default function App() {
 						},
 						headerTintColor: "white",
 						headerTitleAlign: "center",
-					}}
+					})}
 					name="Add"
 					component={AddConnection} />
 				<Stack.Screen

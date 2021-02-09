@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, View, Text, TextInput, TouchableOpacity } from 'react-native'
+import { ScrollView, View, Text, TextInput, TouchableOpacity, } from 'react-native'
 import ImagePicker from '../components/ImagePicker'
 
 

@@ -10,10 +10,7 @@ export default function MemberProfile({ navigation }) {
         <View style={{ flex: 1, marginHorizontal: 20, marginTop: 50 }}>
             <View style={{ flexDirection: 'row' }}>
                 <View>
-                    <TouchableOpacity onPress={()=>{navigation.navigate('User')}}>
-                        <Image style={{ width: 80, height: 80, borderRadius: 40, marginLeft: -5 }} source={require('../../assets/profile1.png')} />
-                    </TouchableOpacity>
-
+                    <Image style={{ width: 80, height: 80, borderRadius: 40, marginLeft: -5 }} source={require('../../assets/profile1.png')} />
                 </View>
                 <View style={{ marginVertical: 20, marginLeft: 10 }}>
                     <Text style={{ fontWeight: 'bold' }}>Larry Hutchson</Text>
