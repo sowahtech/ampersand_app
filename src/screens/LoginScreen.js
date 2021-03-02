@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { Image, TextInput, TouchableOpacity, StyleSheet, Text, ScrollView, View, ActivityIndicator } from 'react-native'
+import { connect } from 'react-redux'
+import { loginEmailAccount } from '../redux/actions/authActions'
 
-export default class LoginScreen extends Component {
+class LoginScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,7 +11,19 @@ export default class LoginScreen extends Component {
             password: ''
         }
     }
+
+    handleUpdateState = (name, value) => {
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handleLogIn = () => {
+        this.props.loginEmailAccount(this.state.email, this.state.password)
+    }
+
     render() {
+        const {auth} = this.props
         return (
             <React.Fragment>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', position: 'absolute' }}>
@@ -23,6 +37,10 @@ export default class LoginScreen extends Component {
                     </View>
                     <View style={{ marginVertical: 80, marginHorizontal: 20 }}>
                         <View style={{ flexDirection: 'row', marginBottom: 5 }}>
+                            {
+                                auth.error.login &&
+                                <Text style={{ color: 'red' }}>{auth.error.login}</Text>
+                            }
                             <Text style={{ flex: 2, fontWeight: 'bold' }}>Email</Text>
                             <TextInput
                                 style={{ flex: 8 }}
@@ -30,7 +48,7 @@ export default class LoginScreen extends Component {
                                 autoCapitalize='none'
                                 autoCorrect={false}
                                 textAlign='right'
-                                onChangeText={(email) => { this.setState({ email }) }}
+                                onChangeText={(text) => { this.handleUpdateState('email', text) }}
                             />
                         </View>
                         <View style={{
@@ -50,7 +68,7 @@ export default class LoginScreen extends Component {
                                 autoCorrect={false}
                                 textAlign='right'
                                 secureTextEntry={true}
-                                onChangeText={(password) => { this.setState({ password }) }}
+                                onChangeText={(text) => { this.handleUpdateState('password', text) }}
                             />
                         </View>
 
@@ -65,7 +83,7 @@ export default class LoginScreen extends Component {
                             alignItems: 'center'
                         }}>
                             <TouchableOpacity>
-                                <Text onPress={() => { this.props.navigation.navigate('Add') }} style={{ color: "white", fontSize: 20 }}>SIGN IN</Text>
+                                <Text onPress={() => { this.handleLogIn() }} style={{ color: "white", fontSize: 20 }}>SIGN IN</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={{ flexDirection: "row", marginTop: 30 }}>
@@ -94,3 +112,9 @@ styles = StyleSheet.create({
         height: 50,
     }
 })
+
+mapStateToProp = (state) =>{
+    return{auth:state}
+}
+
+export default connect(mapStateToProp, { loginEmailAccount })(LoginScreen);

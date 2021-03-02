@@ -3,7 +3,7 @@ import { Image, Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 
 export default function WelcomeScreen2({navigation}) {
     return (
-        <View>
+        <View style={{flex: 1}}>
             <View>
                 <Image style={{ height: 500, marginTop: -100 }} source={require('../../assets/back_03.gif')} />
             </View>
